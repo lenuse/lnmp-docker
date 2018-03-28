@@ -1,0 +1,14 @@
+mysqld, Version: 5.7.21-log (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.21-log (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+# Time: 2018-03-28T08:38:47.726482Z
+# User@Host: root[root] @  [172.17.0.1]  Id:     2
+# Query_time: 0.008221  Lock_time: 0.000189 Rows_sent: 4  Rows_examined: 4
+SET timestamp=1522226327;
+/* ApplicationName=DBeaver 5.0.1 - Main */ SELECT * FROM information_schema.SCHEMATA;
+mysqld, Version: 5.7.21-log (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument

@@ -1,0 +1,8 @@
+2018/02/27 03:24:19 [emerg] 1#1: host not found in upstream "fpm" in /etc/nginx/conf.d/larav.conf:31
+2018/02/27 03:25:21 [emerg] 1#1: host not found in upstream "fpm" in /etc/nginx/conf.d/larav.conf:31
+2018/02/27 03:31:36 [emerg] 1#1: host not found in upstream "fpm" in /etc/nginx/conf.d/site1.conf:27
+2018/02/27 03:36:19 [emerg] 1#1: host not found in upstream "fpm" in /etc/nginx/conf.d/site1.conf:27
+2018/02/27 03:41:31 [emerg] 1#1: host not found in upstream "fpm" in /etc/nginx/conf.d/site1.conf:27
+2018/03/28 08:37:34 [emerg] 1#1: host not found in upstream "fpm" in /etc/nginx/conf.d/site1.conf:27
+2018/03/28 08:43:54 [error] 5#5: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080"
+2018/03/28 08:43:54 [error] 5#5: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080"
