@@ -34,7 +34,7 @@ mysql:
   environment:
     MYSQL_ROOT_PASSWORD: "root"
 
-#redis:
-#  image: redis:latest
-#  ports:
-#    - "6379:6379"
+redis:
+  image: redis:alpine
+  ports:
+    - "6379:6379"
