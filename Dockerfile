@@ -1,10 +1,9 @@
 FROM php:fpm-alpine
 
-RUN echo -e "http://mirrors.ustc.edu.cn/alpine/latest-stable/main" > /etc/apk/repositories && \
-    echo -e "http://mirrors.ustc.edu.cn/alpine/latest-stable/community" >> /etc/apk/repositories && \
-    apk update && apk upgrade
-
-RUN apk add --no-cache libpng libpng-dev
+RUN echo -e "http://mirrors.ustc.edu.cn/alpine/v3.6/main" > /etc/apk/repositories && \
+    echo -e "http://mirrors.ustc.edu.cn/alpine/v3.6/community" >> /etc/apk/repositories
+RUN apk update \
+	&& apk add --no-cache openssl-dev libpng libpng-dev pcre-dev ${PHPIZE_DEPS}
 
 RUN docker-php-ext-install opcache \
 	&& docker-php-ext-install pdo \
@@ -12,14 +11,21 @@ RUN docker-php-ext-install opcache \
 	&& docker-php-ext-install gd \
 	&& docker-php-ext-install sockets
 
-RUN pecl install redis && docker-php-ext-enable redis
+#RUN pecl install redis && pecl install swoole && docker-php-ext-enable redis swoole
 
-RUN cd /root && pecl download swoole && \
-    tar -zxvf swoole-1* && cd swoole-1* && \
+RUN cd /home && wget http://pecl.php.net/get/redis-4.0.0.tgz && \
+	tar -zxvf redis-4.0.0.tgz && cd redis-4.0.0 && \
     phpize && \
-    ./configure --enable-openssl  --enable-http2  --enable-async-redis && \
-    make && make install 
-RUN docker-php-ext-enable swoole
+    ./configure && \
+    make && make install && \
+	docker-php-ext-enable redis
+
+RUN cd /home && wget http://pecl.php.net/get/swoole-2.1.2.tgz && \
+	tar -zxvf swoole-2.1.2.tgz && cd swoole-2.1.2 && \
+    phpize && \
+    ./configure && \
+    make && make install && \
+	docker-php-ext-enable swoole
 
 
 
