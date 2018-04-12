@@ -1,0 +1,5 @@
+log/mysql/*
+log/nginx/*
+log/php-fpm/*
+mysql/*
+redis/data/*
