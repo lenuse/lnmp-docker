@@ -30,5 +30,5 @@ RUN cd /home && wget http://pecl.php.net/get/swoole-2.1.2.tgz && \
 
 
 ## Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer && composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
