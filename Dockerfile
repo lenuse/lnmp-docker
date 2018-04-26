@@ -3,11 +3,12 @@ FROM php:fpm-alpine
 RUN echo -e "http://mirrors.ustc.edu.cn/alpine/v3.6/main" > /etc/apk/repositories && \
     echo -e "http://mirrors.ustc.edu.cn/alpine/v3.6/community" >> /etc/apk/repositories
 RUN apk update \
-	&& apk add --no-cache openssl-dev linux-headers libpng libpng-dev  pcre-dev ${PHPIZE_DEPS}
+	&& apk add --no-cache openssl-dev linux-headers libpng libpng-dev  pcre-dev ${PHPIZE_DEPS} \
+	&& apk add --no-cache freetype freetype-dev libjpeg-turbo libjpeg-turbo-dev 
 
 RUN docker-php-ext-install opcache \
-	&& docker-php-ext-install pdo \
 	&& docker-php-ext-install pdo_mysql \
+	&& docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
 	&& docker-php-ext-install gd \
 	&& docker-php-ext-install sockets
 
